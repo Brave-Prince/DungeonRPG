@@ -19,6 +19,7 @@ var health: int = 4
 var damage: int = 2
 var dying: bool = false
 var just_hit: bool = false
+var is_attacking: bool
 
 func _ready() -> void:
 	state_controller.changeState("Idle")
@@ -29,10 +30,6 @@ func _physics_process(delta):
 	if player:
 		direction = (player.global_transform.origin - self.global_transform.origin).normalized()
 	move_and_slide()
-
-
-func _on_just_hit_timeout() -> void:
-	just_hit = false
 
 
 func _on_chase_player_detection_body_entered(body: Node3D) -> void:
@@ -66,5 +63,24 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		
 func death():
 		self.queue_free()
+
+
+func _on_damage_detector_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		body.hit(damage)
 		
-			
+func hit(damage: int):
+	if !just_hit:
+		just_hit = true
+		get_node("just_hit").start()
+		health -= damage
+		if health <=0:
+			state_controller.changeState("Death")
+		#knockback
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", global_position - (direction/2), 0.2)
+		
+
+
+func _on_just_hit_timeout() -> void:
+	just_hit = false

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://jra080muql4a"]
+
+[ext_resource type="Script" path="res://Scripts/Player/GUI/gameover_overlay.gd" id="1_5yukx"]
+
+[node name="gameover_overlay" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_5yukx")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 176.0
+offset_top = 80.0
+offset_right = 984.0
+offset_bottom = 512.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 808.0
+offset_bottom = 136.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 38
+text = "GAME OVER TRY AGAIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 328.0
+offset_right = 520.0
+offset_bottom = 376.0
+text = "Retry"
+
+[connection signal="pressed" from="Panel/retry" to="." method="_on_retry_pressed"]

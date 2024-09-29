@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://crvln2mn5co2s"]
+[gd_scene load_steps=6 format=3 uid="uid://crvln2mn5co2s"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfw2fg6r1jpr6" path="res://Scenes/Levels/Library.tres" id="1_bxbyd"]
 [ext_resource type="PackedScene" uid="uid://eoivpjgld2yf" path="res://Scenes/Player/player.tscn" id="2_u84lj"]
 [ext_resource type="PackedScene" uid="uid://ycq8gsk2x33k" path="res://Scenes/Monsters/warrior_skelly.tscn" id="3_4j23a"]
+[ext_resource type="PackedScene" uid="uid://jra080muql4a" path="res://Scenes/Player/GUI/gameover_overlay.tscn" id="4_76ips"]
 
 [sub_resource type="Environment" id="Environment_ejpho"]
 background_mode = 1
@@ -32,7 +33,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="player" parent="." instance=ExtResource("2_u84lj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09121, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2118, 1.09121, -10.0747)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ejpho")
@@ -43,5 +44,7 @@ spot_range = 14.3914
 spot_angle = 45.1132
 
 [node name="Warrior Skelly" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_4j23a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1139, 0, 9.736)
 player = NodePath("../player")
+
+[node name="gameover_overlay" parent="." instance=ExtResource("4_76ips")]
