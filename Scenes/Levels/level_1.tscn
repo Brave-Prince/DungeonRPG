@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://crvln2mn5co2s"]
+[gd_scene load_steps=7 format=3 uid="uid://crvln2mn5co2s"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfw2fg6r1jpr6" path="res://Scenes/Levels/Library.tres" id="1_bxbyd"]
+[ext_resource type="Script" path="res://Scripts/MasterScript.gd" id="1_n0ybw"]
 [ext_resource type="PackedScene" uid="uid://eoivpjgld2yf" path="res://Scenes/Player/player.tscn" id="2_u84lj"]
 [ext_resource type="PackedScene" uid="uid://ycq8gsk2x33k" path="res://Scenes/Monsters/warrior_skelly.tscn" id="3_4j23a"]
 [ext_resource type="PackedScene" uid="uid://jra080muql4a" path="res://Scenes/Player/GUI/gameover_overlay.tscn" id="4_76ips"]
@@ -22,6 +23,7 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_n0ybw")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_bxbyd")
