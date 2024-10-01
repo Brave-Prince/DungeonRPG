@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://crvln2mn5co2s"]
+[gd_scene load_steps=8 format=3 uid="uid://crvln2mn5co2s"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfw2fg6r1jpr6" path="res://Scenes/Levels/Library.tres" id="1_bxbyd"]
 [ext_resource type="Script" path="res://Scripts/MasterScript.gd" id="1_n0ybw"]
 [ext_resource type="PackedScene" uid="uid://eoivpjgld2yf" path="res://Scenes/Player/player.tscn" id="2_u84lj"]
 [ext_resource type="PackedScene" uid="uid://ycq8gsk2x33k" path="res://Scenes/Monsters/warrior_skelly.tscn" id="3_4j23a"]
 [ext_resource type="PackedScene" uid="uid://jra080muql4a" path="res://Scenes/Player/GUI/gameover_overlay.tscn" id="4_76ips"]
+[ext_resource type="PackedScene" uid="uid://cc4kpmm4erjix" path="res://Scenes/Player/GUI.tscn" id="6_wgxuk"]
 
 [sub_resource type="Environment" id="Environment_ejpho"]
 background_mode = 1
@@ -50,3 +51,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1139, 0, 9.736)
 player = NodePath("../player")
 
 [node name="gameover_overlay" parent="." instance=ExtResource("4_76ips")]
+
+[node name="GUI" parent="." instance=ExtResource("6_wgxuk")]
